@@ -1,3 +1,4 @@
+#include <chrono>
 #include "TreeContainer.h"
 #include "Node.h"
 using namespace std;
@@ -8,19 +9,26 @@ TreeContainer::TreeContainer() {
 
 void TreeContainer::add(shared_ptr<Node> node) {
 
-	if (head = nullptr) {
+	// Creates Head
+	if (head == nullptr) {
 		head = make_shared<Node>(node);
 		return;
 	}
 
+	// Inserts node.
 	head->insert(node);
 
-	int bal = head->balance();
-	std::shared_ptr<Node> transferNode = head;
-	std::shared_ptr<Node> gChild = nullptr;
 
+	// If the head is unbalanced change it here.
+	// Very similar to the shift functions
+
+	int bal = head->balance();
+	shared_ptr<Node> transferNode = head;
+	shared_ptr<Node> gChild = nullptr;
+
+	// Shift Left
 	if (bal > 1) {
-		std::shared_ptr<Node> child = transferNode->left;
+		shared_ptr<Node> child = transferNode->left;
 
 		if (child->right != nullptr) {
 			gChild = child->right;
@@ -29,8 +37,9 @@ void TreeContainer::add(shared_ptr<Node> node) {
 		transferNode->left = gChild;
 		child->right = transferNode;
 	}
+	// Shift Right
 	else if (bal < -1) {
-		std::shared_ptr<Node> child = transferNode->right;
+		shared_ptr<Node> child = transferNode->right;
 
 		if (child->left != nullptr) {
 			gChild = child->left;
@@ -39,4 +48,13 @@ void TreeContainer::add(shared_ptr<Node> node) {
 		transferNode->right = gChild;
 		child->left = transferNode;
 	}
+}
+
+void TreeContainer::search(int& num) {
+	auto start = chrono::high_resolution_clock::now();
+
+
+	auto end = chrono::high_resolution_clock::now();
+
+	auto durration = chrono::duration_cast<chrono::duration<double>>(end - start);
 }

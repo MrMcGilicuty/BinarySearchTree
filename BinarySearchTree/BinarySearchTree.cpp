@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <iostream>
 #include <memory>
 #include "TreeContainer.h"
 #include "Node.h"
@@ -24,7 +23,5 @@ void generate100(TreeContainer* BinaryTree) {
 int main()
 {
     TreeContainer BLNTree;
-
     generate100(&BLNTree);
 }
-

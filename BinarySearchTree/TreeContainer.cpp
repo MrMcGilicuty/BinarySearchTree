@@ -11,7 +11,7 @@ void TreeContainer::add(shared_ptr<Node> node) {
 
 	// Creates Head
 	if (head == nullptr) {
-		head = make_shared<Node>(node);
+		head = node;
 		return;
 	}
 
@@ -54,7 +54,8 @@ void TreeContainer::search(int& num) {
 	auto start = chrono::high_resolution_clock::now();
 
 
+
 	auto end = chrono::high_resolution_clock::now();
 
-	auto durration = chrono::duration_cast<chrono::duration<double>>(end - start);
+	auto duration = chrono::duration_cast<chrono::duration<double>>(end - start);
 }

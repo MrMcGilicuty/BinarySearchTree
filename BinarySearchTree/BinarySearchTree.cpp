@@ -1,9 +1,7 @@
 #include <iostream>
-#include <vector>
 #include <memory>
 #include "TreeContainer.h"
 #include "Node.h"
-
 using namespace std;
 
 void generate100(TreeContainer* BinaryTree) {

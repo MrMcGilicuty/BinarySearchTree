@@ -2,10 +2,7 @@
 #include <memory>
 class Node {
 public:
-	// No default constuctor.
-	Node() = delete;
-
-	// Constructor that initializes the Key.
+	// Number to set to the key.
 	Node(int num);
 
 	// Recursively finds where a node should be placed on the tree, then performs balances if needed.

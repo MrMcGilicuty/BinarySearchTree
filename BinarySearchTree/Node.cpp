@@ -1,9 +1,8 @@
 #include <memory>
 #include "Node.h"
 
-Node::Node(int num)
-	: key(num)
-{
+Node::Node(int num) : key(num) {
+
 }
 
 int Node::balance() {
@@ -22,8 +21,6 @@ int Node::balance() {
 		return this->left->height() - this->right->height();
 	}
 }
-
-
 
 void Node::insert(std::shared_ptr<Node> node) {
 	// Default Cases.

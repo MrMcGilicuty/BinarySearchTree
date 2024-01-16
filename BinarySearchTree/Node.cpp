@@ -1,8 +1,8 @@
 #include <memory>
 #include "Node.h"
 
-Node::Node(int num) : key(num) {
-
+Node::Node(int num) {
+	this->key = num;
 }
 
 int Node::balance() {

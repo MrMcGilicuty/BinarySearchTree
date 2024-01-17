@@ -24,7 +24,7 @@ void TreeContainer::add(shared_ptr<Node> node) {
 	shared_ptr<Node> transferNode = head;
 	shared_ptr<Node> gChild = nullptr;
 
-	// Shift Left
+	// Shift Right
 	if (bal > 1) {
 		shared_ptr<Node> child = transferNode->left;
 
@@ -35,7 +35,7 @@ void TreeContainer::add(shared_ptr<Node> node) {
 		transferNode->left = gChild;
 		child->right = transferNode;
 	}
-	// Shift Right
+	// Shift Left
 	else if (bal < -1) {
 		shared_ptr<Node> child = transferNode->right;
 
@@ -67,10 +67,10 @@ void TreeContainer::search(int num) {
 bool TreeContainer::find(int num, shared_ptr<Node> node)
 {
 
-	if (node != nullptr && num == node->key) {
+	if (num == node->key) {
 		return 1;
 	}
-	else if (node == nullptr || (node->right == nullptr && node->left == nullptr)) {
+	else if (node->right == nullptr && node->left == nullptr) {
 		return 0;
 	}
 	else if (node->right == nullptr) {

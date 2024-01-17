@@ -22,8 +22,9 @@ int main()
     auto start = chrono::high_resolution_clock::now();
 
     // Setup.
-    TreeContainer BLNTree;
-    generateTree(make_shared<TreeContainer>(BLNTree), 100);
+    shared_ptr<TreeContainer> BLNTree = make_shared<TreeContainer>();
+
+    generateTree(BLNTree, 10000);
 
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::duration<double>>(end - start);
@@ -35,6 +36,6 @@ int main()
         cout << "What number would you like to search for: ";
         cin >> searchKey;
 
-        BLNTree.search(searchKey);
+        BLNTree->search(searchKey);
     }
 }
